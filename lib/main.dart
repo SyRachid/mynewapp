@@ -50,6 +50,20 @@ class Home extends StatelessWidget{
                   child:TextFormField(
                     controller:_controller,
                     onChanged: CheckId,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        letterSpacing: 1.0,
+
+                    ),
+                    decoration: InputDecoration(
+                      border:OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: BorderSide(
+                          width: 3.0,
+                        )
+                      )
+                    ),
                     //ajout des attributs pour le champs de saisie)
             ),
                 ),
@@ -64,6 +78,20 @@ class Home extends StatelessWidget{
                     width:300,
                     height:30,
                     child:TextFormField(
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        letterSpacing: 1.0,
+
+                      ),
+                      decoration: InputDecoration(
+                          border:OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                              borderSide: BorderSide(
+                                width: 3.0,
+                              )
+                          )
+                      ),
                       //ajout des attributs pour le champs de saisie)
                     ),
                   ),
@@ -78,6 +106,20 @@ class Home extends StatelessWidget{
                     width:300,
                     height:30,
                     child:TextFormField(
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        letterSpacing: 1.0,
+
+                      ),
+                      decoration: InputDecoration(
+                          border:OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                              borderSide: BorderSide(
+                                width: 3.0,
+                              )
+                          )
+                      ),
                       //ajout des attributs pour le champs de saisie)
                     ),
                   ),
@@ -93,6 +135,20 @@ class Home extends StatelessWidget{
                     width:300,
                     height:30,
                     child:TextFormField(
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        letterSpacing: 1.0,
+
+                      ),
+                      decoration: InputDecoration(
+                          border:OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                              borderSide: BorderSide(
+                                width: 3.0,
+                              )
+                          )
+                      ),
                       //ajout des attributs pour le champs de saisie)
                     ),
                   ),
@@ -108,6 +164,20 @@ class Home extends StatelessWidget{
                     width:300,
                     height:30,
                     child:TextFormField(
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        letterSpacing: 1.0,
+
+                      ),
+                      decoration: InputDecoration(
+                          border:OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                              borderSide: BorderSide(
+                                width: 3.0,
+                              )
+                          )
+                      ),
                       //ajout des attributs pour le champs de saisie)
                     ),
                   ),
@@ -135,12 +205,5 @@ class Home extends StatelessWidget{
     ) ;
   }
   TextEditingController _controller = TextEditingController();
-
-  void CheckId(String value){
-  if (int.tryParse(value) == null || (int.tryParse(value) !=null && value.length !=9)){
-  print ('Saisies Invalides.');
-
-  }
-  }
 
 }
