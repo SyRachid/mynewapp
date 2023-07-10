@@ -2,12 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'FormController.dart';
 void main() => runApp(MaterialApp(
-  home:Home()
+  home:Home(),
 ));
-class Home extends StatelessWidget{
+class Home extends StatefulWidget{
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  Color? id_color = Colors.grey[600];
+  Color? ret_color = Colors.grey[600];
+  Color? dep_color = Colors.grey[600];
+  Color? pwd_color = Colors.grey[600];
+  Color? email_color = Colors.grey[600];
+
   @override
   Widget build(BuildContext context)
   {
+
     return Scaffold(
         appBar: AppBar(
           title: Text("EMOS X-Transfer",
@@ -41,7 +54,7 @@ class Home extends StatelessWidget{
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2.0,
-                    color:Colors.grey[600],
+                    color:id_color,
                   ) ),
 
                 SizedBox(
@@ -49,7 +62,9 @@ class Home extends StatelessWidget{
                   height:30,
                   child:TextFormField(
                     controller:_controller_id,
-                    onChanged: CheckId,
+                    validator: (value){
+                      CheckId;
+                    },
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.normal,
@@ -61,6 +76,7 @@ class Home extends StatelessWidget{
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: BorderSide(
                           width: 3.0,
+                          color: Colors.red,
                         )
                       )
                     ),
@@ -72,7 +88,7 @@ class Home extends StatelessWidget{
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2.0,
-                    color:Colors.grey[600],
+                    color:ret_color,
                   ) ),
                   SizedBox(
                     width:300,
@@ -102,7 +118,7 @@ class Home extends StatelessWidget{
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2.0,
-                    color:Colors.grey[600],
+                    color:dep_color,
                   ) ),
                   SizedBox(
                     width:300,
@@ -133,7 +149,7 @@ class Home extends StatelessWidget{
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2.0,
-                        color:Colors.grey[600],
+                        color:pwd_color,
                       ) ),
                   SizedBox(
                     width:300,
@@ -164,7 +180,7 @@ class Home extends StatelessWidget{
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2.0,
-                        color:Colors.grey[600],
+                        color:email_color,
                       ) ),
                   SizedBox(
                     width:300,
@@ -193,7 +209,70 @@ class Home extends StatelessWidget{
                   Container(
                     width:120,
                       height:50,
-                      child:FloatingActionButton(onPressed: null,
+                      child:FloatingActionButton(onPressed: (){
+                  if (!CheckId(_controller_id.text)) {
+                    setState(() {
+                      id_color = Colors.red;
+                    });
+
+
+                  }
+                  if (CheckId(_controller_id.text))
+                  {
+                    id_color = Colors.grey[600];
+                  }
+                if (!Checktel(_controller_tel_depot.text))  {
+                     setState(() {
+                       dep_color = Colors.red;
+                     });
+                  }
+                 if (Checktel(_controller_tel_depot.text))
+                {
+                  setState(() {
+                    dep_color = Colors.grey[600];
+                  });
+
+
+                }
+                if (!Checktel(_controller_tel_retrait.text)){
+                  setState(() {
+                    ret_color = Colors.red;
+                  });
+                }
+                 if (Checktel(_controller_tel_retrait.text))
+                {
+                  ret_color = Colors.grey[600];
+                }
+                if (!Checkpwd(_controller_pwd.text))
+                  {
+                    setState(() {
+                      pwd_color = Colors.red;
+                    });
+                  }
+                 if (Checkpwd(_controller_pwd.text))
+                {
+                  pwd_color = Colors.grey[600];
+                }
+                if (!CheckEmail(_controller_email.text))
+                  {
+                    setState(() {
+                      email_color = Colors.red;
+                    });
+                  }
+                 if (CheckEmail(_controller_email.text))
+                {
+                  email_color = Colors.grey[600];
+                }
+               /** else{
+                  setState(() {
+
+                    dep_color = Colors.grey[600];
+                    ret_color = Colors.grey[600];
+                    pwd_color = Colors.grey[600];
+                    email_color = Colors.grey[600];
+                  });
+                }**/
+                      },
                   child:Text("s'inscrire"),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -212,9 +291,16 @@ class Home extends StatelessWidget{
         ),
     ) ;
   }
+
   TextEditingController _controller_id = TextEditingController();
+
   TextEditingController _controller_tel_depot= TextEditingController();
+
   TextEditingController _controller_tel_retrait= TextEditingController();
+
   TextEditingController _controller_pwd = TextEditingController();
+
   TextEditingController _controller_email = TextEditingController();
+
+
 }
