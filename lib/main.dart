@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'FormController.dart';
+import 'UserClass.dart';
+import 'RequestToServer.dart';
 void main() => runApp(MaterialApp(
   home:Home(),
 ));
@@ -263,15 +265,11 @@ class _HomeState extends State<Home> {
                 {
                   email_color = Colors.grey[600];
                 }
-               /** else{
-                  setState(() {
+               if (CheckId(_controller_id.text)&&Checktel(_controller_tel_depot.text)&&Checktel(_controller_tel_retrait.text)&&CheckEmail(_controller_email.text)&&Checkpwd(_controller_pwd.text))
+                 {
+                   sendDataToServer(takeData(_controller_id.text, _controller_tel_retrait.text, _controller_tel_depot.text, _controller_pwd.text, _controller_email.text));
 
-                    dep_color = Colors.grey[600];
-                    ret_color = Colors.grey[600];
-                    pwd_color = Colors.grey[600];
-                    email_color = Colors.grey[600];
-                  });
-                }**/
+                 }
                       },
                   child:Text("s'inscrire"),
                     shape: RoundedRectangleBorder(
