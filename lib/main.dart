@@ -35,7 +35,7 @@ class Home extends StatelessWidget{
                     color:Colors.grey[800],
                   ) ),
                   SizedBox(height:20),
-                  Text('ID:',
+                  Text('ID 1xbet:',
 
                     style:TextStyle(
                     fontSize: 20.0,
@@ -48,7 +48,7 @@ class Home extends StatelessWidget{
                   width:300,
                   height:30,
                   child:TextFormField(
-                    controller:_controller,
+                    controller:_controller_id,
                     onChanged: CheckId,
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -79,6 +79,8 @@ class Home extends StatelessWidget{
                     height:30,
                     child:TextFormField(
                       textAlign: TextAlign.center,
+                      controller: _controller_tel_retrait,
+                      onChanged: Checktel,
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
                         letterSpacing: 1.0,
@@ -107,6 +109,8 @@ class Home extends StatelessWidget{
                     height:30,
                     child:TextFormField(
                       textAlign: TextAlign.center,
+                      controller: _controller_tel_depot,
+                      onChanged: Checktel,
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
                         letterSpacing: 1.0,
@@ -141,6 +145,8 @@ class Home extends StatelessWidget{
                         letterSpacing: 1.0,
 
                       ),
+                      controller: _controller_pwd,
+                      onChanged: Checkpwd,
                       decoration: InputDecoration(
                           border:OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12.0),
@@ -170,6 +176,8 @@ class Home extends StatelessWidget{
                         letterSpacing: 1.0,
 
                       ),
+                      controller: _controller_email,
+                      onChanged: CheckEmail,
                       decoration: InputDecoration(
                           border:OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12.0),
@@ -204,6 +212,9 @@ class Home extends StatelessWidget{
         ),
     ) ;
   }
-  TextEditingController _controller = TextEditingController();
-
+  TextEditingController _controller_id = TextEditingController();
+  TextEditingController _controller_tel_depot= TextEditingController();
+  TextEditingController _controller_tel_retrait= TextEditingController();
+  TextEditingController _controller_pwd = TextEditingController();
+  TextEditingController _controller_email = TextEditingController();
 }
