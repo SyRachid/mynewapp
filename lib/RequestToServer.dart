@@ -1,10 +1,9 @@
 library RequestToServer;
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'UserClass.dart';
 import 'package:http/http.dart' as http;
+
+
 
 User takeData(String id,String retrait, String depot, String pwd, String mail){
   User user = User();
@@ -16,8 +15,10 @@ User takeData(String id,String retrait, String depot, String pwd, String mail){
   return (user);
 }
 
-void sendDataToServer(User user) async {
-  String url='http://172.16.5.33:3000/api/data';
+
+ sendDataToServer(User user) async {
+  bool responseServerbool = false;
+  String url='http://172.16.8.76:3000/api/data';
   String jsonBody = json.encode(user.toJson());
   http.Response response = await http.post(
     Uri.parse(url),
@@ -26,9 +27,10 @@ void sendDataToServer(User user) async {
   );
   if (response.statusCode == 200)
     {
-      print('${response.body}');
+
+       print(response.body);
+
     }
-  else {
-  print('${response.body}');
-  }
+
+
 }

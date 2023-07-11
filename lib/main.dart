@@ -1,10 +1,19 @@
+library main;
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'FormController.dart';
 import 'UserClass.dart';
 import 'RequestToServer.dart';
+import 'registerValidated.dart';
+
 void main() => runApp(MaterialApp(
   home:Home(),
+  theme: ThemeData(
+    snackBarTheme: SnackBarThemeData(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+    )
+  ),
 ));
 class Home extends StatefulWidget{
   @override
@@ -19,11 +28,15 @@ class _HomeState extends State<Home> {
   Color? pwd_color = Colors.grey[600];
   Color? email_color = Colors.grey[600];
 
+  final GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context)
   {
 
+
     return Scaffold(
+
+
         appBar: AppBar(
           title: Text("EMOS X-Transfer",
               style: TextStyle(
@@ -268,6 +281,7 @@ class _HomeState extends State<Home> {
                if (CheckId(_controller_id.text)&&Checktel(_controller_tel_depot.text)&&Checktel(_controller_tel_retrait.text)&&CheckEmail(_controller_email.text)&&Checkpwd(_controller_pwd.text))
                  {
                    sendDataToServer(takeData(_controller_id.text, _controller_tel_retrait.text, _controller_tel_depot.text, _controller_pwd.text, _controller_email.text));
+                    showSnackbar(context, 'réquete envoyé');
 
                  }
                       },
@@ -286,9 +300,12 @@ class _HomeState extends State<Home> {
             )
 
         ),
+
         ),
     ) ;
   }
+
+
 
   TextEditingController _controller_id = TextEditingController();
 
